@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.example.myapplication.ui.login.LoginActivity;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 

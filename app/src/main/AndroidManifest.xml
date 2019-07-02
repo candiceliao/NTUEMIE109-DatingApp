@@ -13,6 +13,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.login.LogoutActivity"></activity>
         <activity android:name=".ui.login.LoginActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".StartActivity" />
         <activity
             android:name=".WelcomeActivity"
