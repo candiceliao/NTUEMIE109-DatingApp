@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#ffc8c8"
+    android:background="@color/colorLoginBg"
     tools:context=".ui.login.LoginActivity">
 
     <EditText
@@ -54,10 +54,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
-        android:background="#ef5350"
+        android:background="@color/colorLoginBtn"
         android:enabled="false"
         android:onClick="click1"
-        android:shadowColor="#6d6d6d"
+        android:shadowColor="@color/colorShadow"
         android:shadowDx="40"
         android:shadowDy="40"
         android:shadowRadius="5"
