@@ -13,9 +13,14 @@
     <string name="loginBtn">"已經有帳戶了嗎?從這裡登入"</string>
     <string name="nextBtn">"下一步"</string>
     <string name="signUp">"註冊"</string>
+    <string name="signUpAccount">"註冊帳號"</string>
+    <string name="login">"登入"</string>
+    <string name="fast_login">"快速登入"</string>
     <string name="nickName">"暱稱"</string>
     <string name="birthday">"出生日期"</string>
     <string name="gender">"性別"</string>
     <string name="password">"請輸入密碼"</string>
-    <string name="re_enter_pwd">"請重新輸入密碼"</string>
+    <string name="forget_password">"忘記密碼?"</string>
+    <string name="re_enter_pwd">"請重複輸入密碼"</string>
+    <string name="input_email">"請輸入電子信箱"</string>
 </resources>
