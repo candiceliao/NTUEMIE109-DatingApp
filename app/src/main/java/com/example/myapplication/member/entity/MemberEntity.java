@@ -1,9 +1,9 @@
-package member.Entity;
+package com.example.myapplication.member.entity;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
-public class Entity {
+public class MemberEntity {
 
     @PrimaryKey
     private int id;
@@ -14,9 +14,10 @@ public class Entity {
     @ColumnInfo(name = "last_name")
     private String lastName;
 
-    @Ignore
-    private int sex; // I don't want to persist this field. So that added @Ignore annotation.
+    @ColumnInfo(name = "gender")
+    private String gender;
 
+    @Ignore
     public int getId() {
         return id;
     }
@@ -39,5 +40,13 @@ public class Entity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
