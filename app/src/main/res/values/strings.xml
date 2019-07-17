@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MINSIDE</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_email">電子郵件信箱</string>
+    <string name="prompt_password">密碼</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
