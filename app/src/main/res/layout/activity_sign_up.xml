@@ -172,7 +172,7 @@
         app:layout_constraintVertical_bias="0.384" />
 
     <EditText
-        android:id="@+id/birthdayEditText3"
+        android:id="@+id/birthdayEditText"
         android:layout_width="306dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -184,7 +184,7 @@
         android:background="@drawable/edit_text_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="YYYY-MM-DD"
+        android:hint="YYYY-MM-DD"
         android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
