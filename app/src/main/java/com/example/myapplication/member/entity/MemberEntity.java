@@ -7,6 +7,8 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class MemberEntity {
 
+    public static final String TABLE_NAME = "member";
+
     @PrimaryKey
     private int id;
 
