@@ -6,10 +6,10 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.example.myapplication.member.dao.MemberDao;
-import com.example.myapplication.member.entity.MemberEntity;
+import com.example.myapplication.member.entity.Member;
 
 
-@Database(entities = {MemberEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {Member.class}, version = 1, exportSchema = false)
 public abstract class MemberDatabase extends RoomDatabase {
 
     private static final String DB_NAME = "MemberDatabase.db";
