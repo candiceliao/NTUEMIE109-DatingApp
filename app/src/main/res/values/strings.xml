@@ -23,4 +23,5 @@
     <string name="forget_password">"忘記密碼?"</string>
     <string name="re_enter_pwd">"請重複輸入密碼"</string>
     <string name="input_email">"請輸入電子信箱"</string>
+    <string name="edit_userInfo">"編輯個人檔案"</string>
 </resources>
