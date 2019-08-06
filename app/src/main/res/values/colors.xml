@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorWelcomeBg">#F4ACB0</color>
     <color name="colorGray">#929097</color>
+    <color name="colorBlack">#000000</color>
     <color name="colorLoginBg">#fcf7f7</color>
     <color name="colorLoginBtn">#ef5350</color>
     <color name="colorShadow">#6d6d6d</color>
