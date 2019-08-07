@@ -249,7 +249,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/好友" />
+        app:srcCompat="@drawable/friend" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -269,7 +269,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/設定" />
+        app:srcCompat="@drawable/set" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -285,11 +285,11 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-        app:layout_constraintHorizontal_bias="0.249"
+        app:layout_constraintHorizontal_bias="0.271"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/聊天" />
+        app:srcCompat="@drawable/chatting" />
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -305,11 +305,11 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/製作專屬角色" />
+        app:srcCompat="@drawable/avatar" />
 
     <ImageButton
         android:id="@+id/imageButton7"
@@ -329,7 +329,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/視訊" />
+        app:srcCompat="@drawable/video" />
 
     <ImageButton
         android:id="@+id/imageButton8"
@@ -349,6 +349,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/聊天機器人" />
+        app:srcCompat="@drawable/robot" />
 
 </android.support.constraint.ConstraintLayout>
