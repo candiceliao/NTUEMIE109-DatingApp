@@ -19,7 +19,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         SharedPreferences spref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = spref.edit();
-        EditText edUserid = (EditText) findViewById(R.id.userid);
+        EditText edUserid = (EditText) findViewById(R.id.mailEditText);
         SharedPreferences setting =
                 getSharedPreferences("atm", MODE_PRIVATE);
         edUserid.setText(setting.getString("PREF_USERID", ""));
