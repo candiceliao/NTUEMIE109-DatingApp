@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
 import com.example.myapplication.interest.InterestActivity;
+
 import java.util.HashSet;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.widget.EditText;
@@ -14,14 +17,17 @@ import android.widget.EditText;
 public class SignUpActivity extends AppCompatActivity {
 
     @Override
-    public void onCreate (Bundle savedInstance) {
+    public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_sign_up);
+
         SharedPreferences spref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = spref.edit();
-        EditText edUserid = (EditText) findViewById(R.id.userid);
+
+        EditText edUserid = (EditText) findViewById(R.id.mailEditText);
         SharedPreferences setting =
                 getSharedPreferences("atm", MODE_PRIVATE);
+
         edUserid.setText(setting.getString("PREF_USERID", ""));
 
         Button interestPageBtn = findViewById(R.id.nextBtn);
