@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -40,6 +41,21 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        SharedPreferences spref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = spref.edit();
+        EditText edUserid = (EditText) findViewById(R.id.username);
+        EditText edPasswd = (EditText) findViewById(R.id.password);
+        String uid = edUserid.getText().toString();
+        String pw = edPasswd.getText().toString();
+        if (uid.equals("jack") && pw.equals("1234")) { //登入成功
+            SharedPreferences setting =
+                    getSharedPreferences("atm", MODE_PRIVATE);
+            setting.edit()
+                    .putString("PREF_USERID", uid)
+                    .commit();
+            Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+        }
+
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -138,11 +154,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
-
-
-
-
 
 
 
