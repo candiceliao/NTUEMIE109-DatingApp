@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="transitionPage" style="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/change_page_left</item>
+                <item name="android:activityCloseExitAnimation">@anim/change_page_right</item>
+    </style>
+
+    <style name="ChangePage" parent="Base.Theme.AppCompat.Light.DarkActionBar">    .
+        .
+        <item name="android:windowAnimationStyle">@style/transitionPage</item>    .
+    </style>
 </resources>
+
