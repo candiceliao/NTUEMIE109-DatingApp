@@ -28,4 +28,10 @@
     <string name="InfoPage">"個人頁面"</string>
     <string name="pairPage">"配對"</string>
     <string name="Try">"trying"</string>
+    <string name="TagExercise">"#運動"</string>
+    <string name="TagFood">"#美食"</string>
+    <string name="TagMovie">"#電影"</string>
+    <string name="TagArt">"#藝術"</string>
+    <string name="TagCook">"#烹飪"</string>
+    <string name="TagMakeup">"#美妝"</string>
 </resources>
