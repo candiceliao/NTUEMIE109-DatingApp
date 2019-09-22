@@ -28,15 +28,16 @@ import com.example.myapplication.ui.login.LoginViewModelFactory;
 
 
 
+
+
     /** Called when the activity is first created. */
-
-
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private Button login;
     private Button btn_logout;
 
+    callbackManager = CallbackManager.Factory.create();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,31 @@ public class LoginActivity extends AppCompatActivity {
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         String uid = edUserid.getText().toString();
         String pw = edPasswd.getText().toString();
+
+
+        loginButton = (LoginButton) findViewById(R.id.button);
+        loginButton.setReadPermissions("email");
+        // If using in a fragment
+        loginButton.setFragment(this);
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+            }
+        });
+
 
         // Validate if username, password is filled
         if(uid.trim().length() > 0 && pw.trim().length() > 0){

@@ -68,7 +68,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),
                             "Password is incorrect",
                             Toast.LENGTH_LONG).show();
-            }
+                }
 
             finish();
 
