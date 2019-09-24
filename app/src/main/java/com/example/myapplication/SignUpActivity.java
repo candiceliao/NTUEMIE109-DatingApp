@@ -8,9 +8,6 @@ import android.widget.Button;
 
 import com.example.myapplication.interest.InterestActivity;
 
-import java.util.HashSet;
-
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 
