@@ -28,42 +28,84 @@ import com.example.myapplication.ui.login.LoginViewModelFactory;
 
 
 
+
+
     /** Called when the activity is first created. */
-
-
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private Button login;
     private Button btn_logout;
 
+    callbackManager = CallbackManager.Factory.create();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         SharedPreferences spref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = spref.edit();
-        EditText edUserid = (EditText) findViewById(R.id.username);
-        EditText edPasswd = (EditText) findViewById(R.id.password);
+        final EditText edUserid = (EditText) findViewById(R.id.username);
+        final EditText edPasswd = (EditText) findViewById(R.id.password);
+        final Button loginButton = findViewById(R.id.loginBtn);
+        final Button SignUpButton = findViewById(R.id.signUpTextBtn);
+        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         String uid = edUserid.getText().toString();
         String pw = edPasswd.getText().toString();
-        if (uid.equals("jack") && pw.equals("1234")) { //登入成功
-            SharedPreferences setting =
+
+
+        loginButton = (LoginButton) findViewById(R.id.button);
+        loginButton.setReadPermissions("email");
+        // If using in a fragment
+        loginButton.setFragment(this);
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+            }
+        });
+
+
+        // Validate if username, password is filled
+        if(uid.trim().length() > 0 && pw.trim().length() > 0){
+            String uName = null;
+            String uPassword =null;
+             if (uid.equals("jack") && pw.equals("1234")) { //登入成功
+                 SharedPreferences setting =
                     getSharedPreferences("atm", MODE_PRIVATE);
-            setting.edit()
+                 setting.edit()
                     .putString("PREF_USERID", uid)
                     .commit();
-            Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+                 Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+            } else {
+                // username / password doesn't match
+                Toast.makeText(getApplicationContext(),
+                    "Username/Password is incorrect",
+                    Toast.LENGTH_LONG).show();
+            }
+        }else{
+            // user didn't enter username or password
+            Toast.makeText(getApplicationContext(),
+                    "Please enter username and password",
+                    Toast.LENGTH_LONG).show();
         }
 
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.loginBtn);
-        final Button SignUpButton = findViewById(R.id.signUpTextBtn);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -73,10 +115,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 loginButton.setEnabled(loginFormState.isDataValid());
                 if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
+                    edUserid.setError(getString(loginFormState.getUsernameError()));
                 }
                 if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
+                    edPasswd.setError(getString(loginFormState.getPasswordError()));
                 }
             }
         });
@@ -114,19 +156,19 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                loginViewModel.loginDataChanged(edUserid.getText().toString(),
+                        edPasswd.getText().toString());
             }
         };
-        usernameEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        edUserid.addTextChangedListener(afterTextChangedListener);
+        edPasswd.addTextChangedListener(afterTextChangedListener);
+        edPasswd.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    loginViewModel.login(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString());
+                    loginViewModel.login(edUserid.getText().toString(),
+                            edPasswd.getText().toString());
                 }
                 return false;
             }
@@ -138,8 +180,8 @@ public class LoginActivity extends AppCompatActivity {
                 Intent it = new Intent(LoginActivity.this,LogoutActivity.class);
                 startActivity(it);
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                loginViewModel.login(edUserid.getText().toString(),
+                        edPasswd.getText().toString());
             }
         });
 
