@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">MINSIDE</string>
+
     <!-- Strings related to login -->
-    <string name="facebook_app_id">[APP_ID]</string> <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
+    <string name="facebook_app_id">[516474589146389]</string>
+    <string name="fb_login_protocol_scheme">fb[516474589146389]</string>
+
     <string name="prompt_email">電子郵件信箱</string>
     <string name="prompt_password">密碼</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -67,5 +70,4 @@
     <string name="TagComic">"#漫畫"</string>
     <string name="TagBaskatball">"#籃球"</string>
     <string name="TagVolleyball">"#排球"</string>
-    <string name="TagWine">"#品酒"</string>
 </resources>

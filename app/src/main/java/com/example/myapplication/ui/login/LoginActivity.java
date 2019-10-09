@@ -25,12 +25,12 @@ import com.example.myapplication.R;
 import com.example.myapplication.SignUpActivity;
 import com.example.myapplication.ui.login.LoginViewModel;
 import com.example.myapplication.ui.login.LoginViewModelFactory;
+import com.facebook.CallbackManager;
 
 
-
-
-
-    /** Called when the activity is first created. */
+/**
+ * Called when the activity is first created.
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_logout;
 
     callbackManager = CallbackManager.Factory.create();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         String pw = edPasswd.getText().toString();
 
 
-        loginButton = (LoginButton) findViewById(R.id.button);
+        loginButton = (LoginButton) findViewById(R.id.fbButton);
         loginButton.setReadPermissions("email");
         // If using in a fragment
         loginButton.setFragment(this);
@@ -78,23 +79,23 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // Validate if username, password is filled
-        if(uid.trim().length() > 0 && pw.trim().length() > 0){
+        if (uid.trim().length() > 0 && pw.trim().length() > 0) {
             String uName = null;
-            String uPassword =null;
-             if (uid.equals("jack") && pw.equals("1234")) { //登入成功
-                 SharedPreferences setting =
-                    getSharedPreferences("atm", MODE_PRIVATE);
-                 setting.edit()
-                    .putString("PREF_USERID", uid)
-                    .commit();
-                 Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+            String uPassword = null;
+            if (uid.equals("jack") && pw.equals("1234")) { //登入成功
+                SharedPreferences setting =
+                        getSharedPreferences("atm", MODE_PRIVATE);
+                setting.edit()
+                        .putString("PREF_USERID", uid)
+                        .commit();
+                Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
             } else {
                 // username / password doesn't match
                 Toast.makeText(getApplicationContext(),
-                    "Username/Password is incorrect",
-                    Toast.LENGTH_LONG).show();
+                        "Username/Password is incorrect",
+                        Toast.LENGTH_LONG).show();
             }
-        }else{
+        } else {
             // user didn't enter username or password
             Toast.makeText(getApplicationContext(),
                     "Please enter username and password",
@@ -103,8 +104,6 @@ public class LoginActivity extends AppCompatActivity {
 
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
-
-
 
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -177,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(LoginActivity.this,LogoutActivity.class);
+                Intent it = new Intent(LoginActivity.this, LogoutActivity.class);
                 startActivity(it);
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(edUserid.getText().toString(),
@@ -190,13 +189,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(LoginActivity.this , SignUpActivity.class);
+                intent.setClass(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
 
     }
-
 
 
     private void updateUiWithUser(LoggedInUserView model) {
