@@ -6,8 +6,6 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "interface")
 public class Interface {
     @PrimaryKey
-    private String userNumberInf;
-
     @ColumnInfo(name = "userNumberInf")
     private  String userNumberInf;
 

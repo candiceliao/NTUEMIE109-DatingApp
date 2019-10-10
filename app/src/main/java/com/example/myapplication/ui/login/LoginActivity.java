@@ -26,6 +26,12 @@ import com.example.myapplication.SignUpActivity;
 import com.example.myapplication.ui.login.LoginViewModel;
 import com.example.myapplication.ui.login.LoginViewModelFactory;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.LoggingBehavior;
+import com.facebook.login.LoginManager;
+import com.facebook.login.widget.LoginButton;
 
 
 /**
@@ -37,12 +43,46 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private Button btn_logout;
 
-    callbackManager = CallbackManager.Factory.create();
+    CallbackManager callbackManager;
+
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        Log.d("TAG", "requestCode = " + requestCode);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Log.d("TAG", "GO");
+
+        //for facebook_login
+        callbackManager = CallbackManager.Factory.create();
+
+        FacebookSdk.setIsDebugEnabled(true);
+        FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<com.facebook.login.LoginResult>() {
+            @Override
+            public void onSuccess(com.facebook.login.LoginResult loginResult) {
+                Log.d("TAG", "LoginResult = " + loginResult.toString());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d("TAG", "onCancel()");
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                Log.d("TAG", exception.toString());
+            }
+
+        });
+
+        //SharedPreferences
         SharedPreferences spref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = spref.edit();
         final EditText edUserid = (EditText) findViewById(R.id.username);
@@ -52,30 +92,6 @@ public class LoginActivity extends AppCompatActivity {
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         String uid = edUserid.getText().toString();
         String pw = edPasswd.getText().toString();
-
-
-        loginButton = (LoginButton) findViewById(R.id.fbButton);
-        loginButton.setReadPermissions("email");
-        // If using in a fragment
-        loginButton.setFragment(this);
-
-        // Callback registration
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                // App code
-            }
-
-            @Override
-            public void onCancel() {
-                // App code
-            }
-
-            @Override
-            public void onError(FacebookException exception) {
-                // App code
-            }
-        });
 
 
         // Validate if username, password is filled
@@ -194,7 +210,32 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //
+//        loginButton = (LoginButton) findViewById(R.id.fbButton);
+//        loginButton.setReadPermissions("email");
+//        // If using in a fragment
+//        loginButton.setFragment(this);
+//
+//        // Callback registration
+//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                // App code
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                // App code
+//            }
+//
+//            @Override
+//            public void onError(FacebookException exception) {
+//                // App code
+//            }
+//        });
+
     }
+
 
 
     private void updateUiWithUser(LoggedInUserView model) {

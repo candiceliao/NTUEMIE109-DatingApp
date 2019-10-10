@@ -1,4 +1,5 @@
 package com.example.myapplication.user.entity;
+
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
@@ -31,7 +32,7 @@ public class User {
     private String userState;
 
     @ColumnInfo(name = "userNumberInf")
-    private  String userNumberInf;
+    private String userNumberInf;
 
     public User(String userName) {
         this.userName = userName;
