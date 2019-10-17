@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
         if (uid.trim().length() > 0 && pw.trim().length() > 0) {
             String uName = null;
             String uPassword = null;
-            if (uid.equals("jack") && pw.equals("1234")) { //登入成功
+            if (uid.equals("jack@gmail.com") && pw.equals("12345")) { //登入成功
                 SharedPreferences setting =
                         getSharedPreferences("atm", MODE_PRIVATE);
                 setting.edit()
