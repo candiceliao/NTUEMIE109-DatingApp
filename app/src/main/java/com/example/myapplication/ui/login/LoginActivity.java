@@ -22,7 +22,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -45,10 +47,21 @@ import com.facebook.login.widget.LoginButton;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-    private Button login;
-    private Button btn_logout;
+    private Button loginBtn;
+    private Button SignUpBtn;
+
+    private EditText edUserid;
+    private EditText edPasswd;
+    private ProgressBar loadingProgressBar;
+    private String userId;
+    private String userPwd;
 
     CallbackManager callbackManager;
+    SharedPreferences spref;
+    SharedPreferences.Editor editor;
+    FacebookSdk fbSDk;
+    TextWatcher afterTextChangedListener;
+
 
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
@@ -58,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    final public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.d("TAG", "GO");
@@ -66,8 +79,8 @@ public class LoginActivity extends AppCompatActivity {
         //for facebook_login
         callbackManager = CallbackManager.Factory.create();
 
-        FacebookSdk.setIsDebugEnabled(true);
-        FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+        fbSDk.setIsDebugEnabled(true);
+        fbSDk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
 
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<com.facebook.login.LoginResult>() {
             @Override
@@ -88,26 +101,26 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //SharedPreferences
-        SharedPreferences spref = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor editor = spref.edit();
-        final EditText edUserid = (EditText) findViewById(R.id.username);
-        final EditText edPasswd = (EditText) findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.loginBtn);
-        final Button SignUpButton = findViewById(R.id.signUpTextBtn);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-        String uid = edUserid.getText().toString();
-        String pw = edPasswd.getText().toString();
+        spref = getPreferences(MODE_PRIVATE);
+        editor = spref.edit();
+        edUserid = findViewById(R.id.username);
+        edPasswd = findViewById(R.id.password);
+        loginBtn = findViewById(R.id.loginBtn);
+        SignUpBtn = findViewById(R.id.signUpTextBtn);
+        loadingProgressBar = findViewById(R.id.loading);
+        userId = edUserid.getText().toString();
+        userPwd = edPasswd.getText().toString();
 
 
         // Validate if username, password is filled
-        if (uid.trim().length() > 0 && pw.trim().length() > 0) {
+        if (userId.trim().length() > 0 && userPwd.trim().length() > 0) {
             String uName = null;
             String uPassword = null;
-            if (uid.equals("jack") && pw.equals("1234")) { //登入成功
+            if (userId.equals("jack@gmail.com") && userPwd.equals("12345")) { //登入成功
                 SharedPreferences setting =
                         getSharedPreferences("atm", MODE_PRIVATE);
                 setting.edit()
-                        .putString("PREF_USERID", uid)
+                        .putString("PREF_USERID", userId)
                         .commit();
                 Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
             } else {
@@ -123,23 +136,20 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        loginViewModel = ViewModelProviders.of(this, (ViewModelProvider.Factory) new LoginViewModelFactory())
+        loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
 
-        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
-            @Override
-            public void onChanged(@Nullable LoginFormState loginFormState) {
-                if (loginFormState == null) {
-                    return;
-                }
-                loginButton.setEnabled(loginFormState.isDataValid());
-                if (loginFormState.getUsernameError() != null) {
-                    edUserid.setError(getString(loginFormState.getUsernameError()));
-                }
-                if (loginFormState.getPasswordError() != null) {
-                    edPasswd.setError(getString(loginFormState.getPasswordError()));
-                }
+        loginViewModel.getLoginFormState().observe(this, loginFormState -> {
+            if (loginFormState == null) {
+                return;
+            }
+            loginBtn.setEnabled(loginFormState.isDataValid());
+            if (loginFormState.getUsernameError() != null) {
+                edUserid.setError(getString(loginFormState.getUsernameError()));
+            }
+            if (loginFormState.getPasswordError() != null) {
+                edPasswd.setError(getString(loginFormState.getPasswordError()));
             }
         });
 
@@ -163,7 +173,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        TextWatcher afterTextChangedListener = new TextWatcher() {
+        afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // ignore
@@ -193,54 +203,23 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
-        Button login = findViewById(R.id.loginBtn);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(LoginActivity.this, LogoutActivity.class);
-                startActivity(it);
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(edUserid.getText().toString(),
-                        edPasswd.getText().toString());
-            }
+
+        loginBtn = findViewById(R.id.loginBtn);
+
+        loginBtn.setOnClickListener(v -> {
+            Intent it = new Intent(LoginActivity.this, LogoutActivity.class);
+            startActivity(it);
+            loadingProgressBar.setVisibility(View.VISIBLE);
+            loginViewModel.login(edUserid.getText().toString(),
+                    edPasswd.getText().toString());
         });
 
-        SignUpButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(LoginActivity.this, SignUpActivity.class);
-                startActivity(intent);
-            }
+        SignUpBtn.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(LoginActivity.this, SignUpActivity.class);
+            startActivity(intent);
         });
-
-        //
-//        loginButton = (LoginButton) findViewById(R.id.fbButton);
-//        loginButton.setReadPermissions("email");
-//        // If using in a fragment
-//        loginButton.setFragment(this);
-//
-//        // Callback registration
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onError(FacebookException exception) {
-//                // App code
-//            }
-//        });
-
     }
-
 
 
     private void updateUiWithUser(LoggedInUserView model) {
