@@ -5,6 +5,8 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Patterns;
 
+import androidx.lifecycle.ViewModel;
+
 import com.example.myapplication.data.LoginRepository;
 import com.example.myapplication.data.Result;
 import com.example.myapplication.data.model.LoggedInUser;

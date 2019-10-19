@@ -1,14 +1,14 @@
 package com.example.myapplication.ui.login;
 
 import android.app.Activity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+//import android.arch.lifecycle.Observer;
+//import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.annotation.Nullable;
+//import android.support.annotation.StringRes;
+//import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -20,6 +20,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
 import com.example.myapplication.SignUpActivity;
@@ -118,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
+        loginViewModel = ViewModelProviders.of(this, (ViewModelProvider.Factory) new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
 
