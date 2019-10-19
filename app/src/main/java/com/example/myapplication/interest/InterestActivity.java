@@ -16,9 +16,9 @@ import com.example.myapplication.databinding.ActivityInterestBinding;
 
 public class InterestActivity extends AppCompatActivity {
 
-    private ActivityInterestBinding binding;
+    ActivityInterestBinding binding;
 
-    private InterestViewModel interestViewModel = new InterestViewModel();
+    InterestViewModel interestViewModel = new InterestViewModel();
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
