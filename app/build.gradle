@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.myapplication"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,21 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // Google service for Firebase
+    buildscript {
+        repositories {
+            jcenter()
+        }
+        dependencies {
+            classpath 'com.google.gms:google-services:4.0.1'
+        }
     }
 }
 
@@ -48,11 +63,22 @@ dependencies {
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
     testImplementation 'android.arch.persistence.room:testing:1.1.1'
+
+    //chatSDK with Firebase
+    implementation 'co.chatsdk.chatsdk:chat-sdk-core:4.8.4'
+    implementation 'co.chatsdk.chatsdk:chat-sdk-ui:4.8.4'
+    implementation 'co.chatsdk.chatsdk:chat-sdk-firebase-adapter:4.8.4'
+    implementation 'co.chatsdk.chatsdk:chat-sdk-firebase-file-storage:4.8.4'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
 }
 allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "http://dl.bintray.com/chat-sdk/chat-sdk-android" }
         maven { url 'https://maven.google.com' }
+        maven { url "https://jitpack.io" }
     }
 }
+
+apply plugin: 'com.google.gms.google-services'
