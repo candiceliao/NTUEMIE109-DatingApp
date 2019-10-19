@@ -1,9 +1,15 @@
 package com.example.myapplication.interest;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
+//import android.arch.lifecycle.ViewModelProviders;
+//import android.databinding.DataBindingUtil;
+//import android.os.Bundle;
+//import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityInterestBinding;
