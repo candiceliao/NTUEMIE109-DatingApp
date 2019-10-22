@@ -2,9 +2,6 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,14 +24,10 @@ public class StartActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        signUpPageBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent signIntent = new Intent();
-                signIntent.setClass(StartActivity.this, SignUpActivity.class);
-                startActivity(signIntent);
-            }
+        signUpPageBtn.setOnClickListener(v -> {
+            Intent signIntent = new Intent();
+            signIntent.setClass(StartActivity.this, SignUpActivity.class);
+            startActivity(signIntent);
         });
     }
 }
