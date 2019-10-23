@@ -32,6 +32,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.SignUpActivity;
 import com.example.myapplication.ui.login.LoginViewModel;
 import com.example.myapplication.ui.login.LoginViewModelFactory;
+import com.example.myapplication.user.view.UserPjActivity;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -116,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
         if (userId.trim().length() > 0 && userPwd.trim().length() > 0) {
             String uName = null;
             String uPassword = null;
-            if (userId.equals("jack@gmail.com") && userPwd.equals("12345")) { //登入成功
+            if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) { //登入成功
                 SharedPreferences setting =
                         getSharedPreferences("atm", MODE_PRIVATE);
                 setting.edit()
@@ -207,7 +208,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
 
         loginBtn.setOnClickListener(v -> {
-            Intent it = new Intent(LoginActivity.this, LogoutActivity.class);
+            Intent it = new Intent(LoginActivity.this, UserPjActivity.class);
             startActivity(it);
             loadingProgressBar.setVisibility(View.VISIBLE);
             loginViewModel.login(edUserid.getText().toString(),
