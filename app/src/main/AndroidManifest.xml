@@ -4,7 +4,7 @@
     package="com.example.myapplication">
 
     <application
-        android:name="android.support.multidex.MultiDexApplication"
+        android:name="androidx.multidex.MultiDexApplication"
 
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_minside"
@@ -15,7 +15,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 <!--        tools:replace="android:appComponentFactory"-->
 
-        <activity android:name=".ui.login.LogoutActivity"></activity>
+        <activity android:name=".user.view.UserPjActivity"></activity>
         <activity android:name=".ui.login.LoginActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".interest.InterestActivity"></activity>
