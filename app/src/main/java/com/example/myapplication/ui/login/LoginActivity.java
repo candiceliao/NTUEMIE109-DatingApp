@@ -115,14 +115,18 @@ public class LoginActivity extends AppCompatActivity {
 
         // Validate if username, password is filled
         if (userId.trim().length() > 0 && userPwd.trim().length() > 0) {
+            //有輸入
             String uName = null;
             String uPassword = null;
-            if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) { //登入成功
+
+            if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) {
+                //登入成功
                 SharedPreferences setting =
-                        getSharedPreferences("atm", MODE_PRIVATE);
+                        getSharedPreferences("userPjInfo", MODE_PRIVATE);
                 setting.edit()
-                        .putString("PREF_USERID", userId)
-                        .commit();
+                        .putString("PREF_Pj_ID", userId)
+                        .apply();
+
                 Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
             } else {
                 // username / password doesn't match
