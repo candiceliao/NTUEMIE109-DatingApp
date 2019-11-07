@@ -15,7 +15,6 @@ public class UserPjActivity extends AppCompatActivity {
 
     private ActivityUserPjBinding activityUserPjBinding;
     private UserPjViewModel userPjViewModel = new UserPjViewModel();
-    private Button btn_logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
