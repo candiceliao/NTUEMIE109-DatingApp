@@ -43,6 +43,7 @@
     <string name="Birth_Hee">"1994.06.20  雙子"</string>
     <string name="Hsiang">"金翔"</string>
     <string name="Id_Hsiang">"77777777"</string>
+    <string name="Id_Jack">"00000005"</string>
     <string name="NYO_Hsiang">"金翔/21"</string>
     <string name="Birth_Hsiang">"1997.12.12  射手"</string>
     <string name="InfoPage">"個人頁面"</string>
@@ -70,4 +71,7 @@
     <string name="TagComic">"#漫畫"</string>
     <string name="TagBaskatball">"#籃球"</string>
     <string name="TagVolleyball">"#排球"</string>
+    <string name="pj">"PJ"</string>
+    <string name="pj_Hi">"好想去加州"</string>
+    <string name="Birth_pj">"1995.7.12  巨蟹"</string>
 </resources>
