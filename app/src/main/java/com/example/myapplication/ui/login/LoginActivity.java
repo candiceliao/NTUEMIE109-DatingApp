@@ -41,6 +41,8 @@ import com.facebook.LoggingBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.LoginButton;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * Called when the activity is first created.
