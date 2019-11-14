@@ -10,13 +10,16 @@ import com.example.myapplication.ui.login.LoginActivity;
 
 public class StartActivity extends AppCompatActivity {
 
+    private Button loginPageBtn;
+    private Button signUpPageBtn;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Button loginPageBtn = findViewById(R.id.loginBtn);
-        Button signUpPageBtn = findViewById(R.id.signUpBtn);
+        loginPageBtn = findViewById(R.id.loginBtn);
+        signUpPageBtn = findViewById(R.id.signUpBtn);
 
         loginPageBtn.setOnClickListener(v -> {
             Intent intent = new Intent();

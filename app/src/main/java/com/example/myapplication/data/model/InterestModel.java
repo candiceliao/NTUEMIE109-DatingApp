@@ -8,6 +8,7 @@ public class InterestModel {
         new Handler().postDelayed(() -> callback.onDataReady("New InterestModel"), 1500);
     }
 
+
     public interface onDataReadyCallback {
          void onDataReady(String data);
     }
