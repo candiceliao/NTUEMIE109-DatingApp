@@ -28,6 +28,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.LoggingBehavior;
 import com.facebook.login.LoginManager;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * Called when the activity is first created.
@@ -103,8 +105,8 @@ public class LoginActivity extends AppCompatActivity {
         // Validate if username, password is filled
         if (userId.trim().length() > 0 && userPwd.trim().length() > 0) {
             //有輸入
-            String uName = null;
-            String uPassword = null;
+            //String uName = null;
+            //String uPassword = null;
 
             if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) {
                 //登入成功
@@ -112,18 +114,19 @@ public class LoginActivity extends AppCompatActivity {
                         getSharedPreferences("userPjInfo", MODE_PRIVATE);
                 setting.edit()
                         .putString("PREF_Pj_ID", userId)
+                        .putString("PREF_Pj_Pwd", userPwd)
                         .apply();
 
                 Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
             } else {
                 // username / password doesn't match
-                Toast.makeText(getApplicationContext(),
+                Toast.makeText(this,
                         "Username/Password is incorrect",
                         Toast.LENGTH_LONG).show();
             }
         } else {
             // user didn't enter username or password
-            Toast.makeText(getApplicationContext(),
+            Toast.makeText(this,
                     "Please enter username and password",
                     Toast.LENGTH_LONG).show();
         }
