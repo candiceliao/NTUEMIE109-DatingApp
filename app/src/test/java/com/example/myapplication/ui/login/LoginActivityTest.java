@@ -14,7 +14,7 @@ import org.junit.Test;
 import static android.content.Context.MODE_PRIVATE;
 import static org.junit.Assert.*;
 
-public class LoginActivityTest {
+public class LoginActivityTest extends AndroidTestCase{
     private LoginViewModel loginViewModel;
     private Button loginBtn;
     private Button SignUpBtn;
@@ -31,6 +31,11 @@ public class LoginActivityTest {
 
     @Test
     public void onActivityResult() {
+        
+    }
+
+    @Test
+    public void onCreate() {
         spref = getPreferences(MODE_PRIVATE);
         editor = spref.edit();
         edUserid = findViewById(R.id.username);
@@ -54,7 +59,7 @@ public class LoginActivityTest {
                         .putString("PREF_Pj_Pwd", userPwd)
                         .apply();
 
-                Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "登入成功",  Toast.LENGTH_LONG).show();
             } else {
                 // username / password doesn't match
                 Toast.makeText(this,
@@ -67,9 +72,5 @@ public class LoginActivityTest {
                     "Please enter username and password",
                     Toast.LENGTH_LONG).show();
         }
-    }
-
-    @Test
-    public void onCreate() {
     }
 }

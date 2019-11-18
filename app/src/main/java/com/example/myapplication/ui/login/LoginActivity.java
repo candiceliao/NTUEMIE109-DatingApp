@@ -93,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         //SharedPreferences
         spref = getPreferences(MODE_PRIVATE);
         editor = spref.edit();
+        editor.clear();
         edUserid = findViewById(R.id.username);
         edPasswd = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginBtn);
