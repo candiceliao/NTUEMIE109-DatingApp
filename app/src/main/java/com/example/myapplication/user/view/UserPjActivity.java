@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityUserPjBinding;
+import com.example.myapplication.pair.PairMainActivity;
 import com.example.myapplication.pair.hee.view.HeeActivity;
 import com.example.myapplication.user.viewModel.UserPjViewModel;
 
@@ -19,6 +20,7 @@ public class UserPjActivity extends AppCompatActivity {
     private ActivityUserPjBinding activityUserPjBinding;
     private UserPjViewModel userPjViewModel = new UserPjViewModel();
     private ImageButton pairPageBtn;
+    private ImageButton cardPageBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +35,19 @@ public class UserPjActivity extends AppCompatActivity {
         //change to the pair page
         pairPageBtn = findViewById(R.id.friendButton);
         pairPageBtn.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.setClass(UserPjActivity.this , HeeActivity.class);
-            startActivity(intent);
+            Intent pairIntent = new Intent();
+            pairIntent.setClass(UserPjActivity.this , HeeActivity.class);
+            startActivity(pairIntent);
         });
+
+        //test the pair swipe
+        cardPageBtn = findViewById(R.id.chatButton);
+        cardPageBtn.setOnClickListener(v -> {
+            Intent cardIntent = new Intent();
+            cardIntent.setClass(UserPjActivity.this , PairMainActivity.class);
+            startActivity(cardIntent);
+        });
+
 
     }
 
