@@ -1,7 +1,9 @@
 package com.example.myapplication.user.entity;
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "users")
 public class User {
@@ -31,7 +33,7 @@ public class User {
     private String userState;
 
     @ColumnInfo(name = "userNumberInf")
-    private  String userNumberInf;
+    private String userNumberInf;
 
     public User(String userName) {
         this.userName = userName;
