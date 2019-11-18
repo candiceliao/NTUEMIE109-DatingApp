@@ -20,6 +20,7 @@
         <activity android:name=".ui.login.LoginActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".interest.InterestActivity"></activity>
+        <activity android:name=".pair.PairMainActivity"></activity>
         <activity android:name=".StartActivity" />
         <activity
             android:name=".WelcomeActivity"
