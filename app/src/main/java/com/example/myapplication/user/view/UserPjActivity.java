@@ -30,6 +30,14 @@ public class UserPjActivity extends AppCompatActivity {
 
         activityUserPjBinding.setUserPjViewModel(userPjViewModel);
 
+        //change to the pair page
+        pairPageBtn = findViewById(R.id.friendButton);
+        pairPageBtn.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(UserPjActivity.this , HeeActivity.class);
+            startActivity(intent);
+        });
+
     }
 
 }
