@@ -1,8 +1,8 @@
 package com.example.myapplication.interest;
 
-import android.arch.lifecycle.ViewModel;
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
+import androidx.lifecycle.ViewModel;
 
 import com.example.myapplication.data.model.InterestModel;
 
@@ -18,14 +18,10 @@ public class InterestViewModel extends ViewModel {
 
         isLoading.set(true);
 
-        interestmodel.retrieveData(new InterestModel.onDataReadyCallback() {
+        interestmodel.retrieveData(data -> {
 
-            @Override
-            public void onDataReady(String data) {
-
-                mData.set(data);
-                isLoading.set(false);
-            }
+            mData.set(data);
+            isLoading.set(false);
         });
     }
 }
