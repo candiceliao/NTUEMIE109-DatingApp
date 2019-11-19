@@ -16,7 +16,7 @@ public class PairMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pair_main);
 
         mSwipeView = findViewById(R.id.swipeView);
         mContext = getApplicationContext();
