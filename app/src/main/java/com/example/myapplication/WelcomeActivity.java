@@ -3,8 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     @Override
@@ -12,9 +11,12 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        new Handler().postDelayed(() -> {
-            startActivity(new Intent(WelcomeActivity.this, StartActivity.class));
-            finish();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(WelcomeActivity.this, StartActivity.class));
+                finish();
+            }
         }, 2000);
 
     }

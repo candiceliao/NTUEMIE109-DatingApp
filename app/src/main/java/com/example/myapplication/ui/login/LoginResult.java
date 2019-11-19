@@ -1,6 +1,6 @@
 package com.example.myapplication.ui.login;
 
-import androidx.annotation.Nullable;
+import android.support.annotation.Nullable;
 
 /**
  * Authentication result : success (user details) or error message.

@@ -1,6 +1,6 @@
 package com.example.myapplication.ui.login;
 
-import androidx.annotation.Nullable;
+import android.support.annotation.Nullable;
 
 /**
  * Data validation state of the login form.

@@ -1,10 +1,7 @@
-package com.example.myapplication.robot;
-//import android.arch.persistence.room.ColumnInfo;
-//import android.arch.persistence.room.Entity;
-//import android.arch.persistence.room.PrimaryKey;
-
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
+package com.example.myapplication.user.entity;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "robot")
 public class Robot {

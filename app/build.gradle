@@ -2,19 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-
     defaultConfig {
         applicationId "com.example.myapplication"
-        minSdkVersion 16
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
-
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -24,79 +19,30 @@ android {
     dataBinding {
         enabled = true
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    // Google service for Firebase
-    buildscript {
-        repositories {
-            jcenter()
-        }
-        dependencies {
-            classpath 'com.google.gms:google-services:4.0.1'
-        }
-    }
-
-    //for placeHolder of TinderSwipe
-    sourceSets {
-        main {
-            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
-            res.srcDirs = ['src/main/res', 'src/main/res/drawable']
-        }
-    }
 }
 
 dependencies {
-    implementation 'com.android.support:multidex:1.0.3'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:animated-vector-drawable:28.0.0'
-    implementation 'com.android.support:customtabs:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:support-annotations:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
-
-    //facebook android SDK
-    implementation 'com.facebook.android:facebook-login:[5,6)'
-
-    annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    implementation 'com.facebook.android:facebook-login:[5,6)'
 
     //android room
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
     testImplementation 'android.arch.persistence.room:testing:1.1.1'
-
-    //chatSDK with Firebase
-    implementation 'co.chatsdk.chatsdk:chat-sdk-core:4.8.4'
-    implementation 'co.chatsdk.chatsdk:chat-sdk-ui:4.8.4'
-    implementation 'co.chatsdk.chatsdk:chat-sdk-firebase-adapter:4.8.4'
-    implementation 'co.chatsdk.chatsdk:chat-sdk-firebase-file-storage:4.8.4'
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
-
-    //placeHolder for tinderSwipe
-    implementation 'com.mindorks:placeholderview:0.7.1'
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-    implementation 'com.google.code.gson:gson:2.8.6'
 }
 allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "http://dl.bintray.com/chat-sdk/chat-sdk-android" }
-        maven { url 'https://maven.google.com' }
-        maven { url "https://jitpack.io" }
     }
 }
-
-apply plugin: 'com.google.gms.google-services'
