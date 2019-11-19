@@ -32,6 +32,7 @@ public class UserPjActivity extends AppCompatActivity {
 
         activityUserPjBinding.setUserPjViewModel(userPjViewModel);
 
+<<<<<<< HEAD
         //change to the pair page
         pairPageBtn = findViewById(R.id.friendButton);
         pairPageBtn.setOnClickListener(v -> {
@@ -49,6 +50,8 @@ public class UserPjActivity extends AppCompatActivity {
         });
 
 
+=======
+>>>>>>> parent of 1636f70... Merge branch 'master' of https://github.com/candiceliao/NTUEMIE109-DatingApp
     }
 
 }
