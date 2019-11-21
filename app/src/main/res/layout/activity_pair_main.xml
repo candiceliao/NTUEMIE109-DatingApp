@@ -1,29 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="bottom"
+        android:layout_height="40dp"
+        android:layout_gravity="top"
         android:gravity="center"
         android:orientation="horizontal">
+
         <ImageButton
-            android:id="@+id/rejectBtn"
+            android:id="@+id/navigation_side"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/bad"/>
-        <ImageButton
-            android:id="@+id/acceptBtn"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="3.0dip"
+            android:background="@drawable/set" />
+
+        <TextView
+            android:id="@+id/pairCardTitle"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/smile"/>
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="@string/pairPage"
+            android:textColor="@color/colorWelcomeBg" />
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_gravity="top"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/rejectBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/bad" />
+
+            <ImageButton
+                android:id="@+id/acceptBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/smile" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_function"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/friendButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/friend" />
+
+            <ImageButton
+                android:id="@+id/chatButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/chat" />
+
+            <ImageButton
+                android:id="@+id/makeMyselfButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/face" />
+
+            <ImageButton
+                android:id="@+id/cameraButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/camera" />
+
+            <ImageButton
+                android:id="@+id/robotButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/robot" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </FrameLayout>
