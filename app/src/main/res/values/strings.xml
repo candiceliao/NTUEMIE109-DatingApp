@@ -73,11 +73,4 @@
     <string name="pj">"PJ"</string>
     <string name="pj_Hi">"好想去加州"</string>
     <string name="Birth_pj">"1995.7.12  巨蟹"</string>
-
-    //this is for navigation
-    <string name="nav_friend">"好友"</string>
-    <string name="nav_chat">"聊天"</string>
-    <string name="nav_style">"造型"</string>
-    <string name="nav_video">"視訊"</string>
-    <string name="nav_robot">"機器人聊天"</string>
 </resources>
