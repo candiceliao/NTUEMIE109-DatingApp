@@ -62,7 +62,7 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.1'
 
     //facebook android SDK
-//    implementation 'com.facebook.android:facebook-login:[5,6)'
+    implementation 'com.facebook.android:facebook-login:5.11.0'
 
     annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
     testImplementation 'junit:junit:4.12'
