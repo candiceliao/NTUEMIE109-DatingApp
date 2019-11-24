@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_friend"
+        android:icon="@drawable/friend"
+        android:title="@string/nav_friend" />
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/chat"
+        android:title="@string/nav_chat" />
+    <item
+        android:id="@+id/nav_style"
+        android:icon="@drawable/face"
+        android:title="@string/nav_style" />
+
+    <item
+        android:id="@+id/nav_video"
+        android:icon="@drawable/camera"
+        android:title="@string/nav_video" />
+
+    <item
+        android:id="@+id/nav_robot"
+        android:icon="@drawable/robot"
+        android:title="@string/nav_robot" />
+
+</menu>
