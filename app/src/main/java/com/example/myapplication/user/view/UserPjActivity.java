@@ -31,22 +31,22 @@ public class UserPjActivity extends AppCompatActivity {
         userPjViewModel = ViewModelProviders.of(this).get(UserPjViewModel.class);
 
         activityUserPjBinding.setUserPjViewModel(userPjViewModel);
-
-        //change to the pair page
-        pairPageBtn = findViewById(R.id.friendButton);
-        pairPageBtn.setOnClickListener(v -> {
-            Intent pairIntent = new Intent();
-            pairIntent.setClass(UserPjActivity.this , HeeActivity.class);
-            startActivity(pairIntent);
-        });
-
-        //test the pair swipe
-        cardPageBtn = findViewById(R.id.chatButton);
-        cardPageBtn.setOnClickListener(v -> {
-            Intent cardIntent = new Intent();
-            cardIntent.setClass(UserPjActivity.this , PairMainActivity.class);
-            startActivity(cardIntent);
-        });
+//
+//        //change to the pair page
+//        pairPageBtn = findViewById(R.id.friendButton);
+//        pairPageBtn.setOnClickListener(v -> {
+//            Intent pairIntent = new Intent();
+//            pairIntent.setClass(UserPjActivity.this , HeeActivity.class);
+//            startActivity(pairIntent);
+//        });
+//
+//        //test the pair swipe
+//        cardPageBtn = findViewById(R.id.chatButton);
+//        cardPageBtn.setOnClickListener(v -> {
+//            Intent cardIntent = new Intent();
+//            cardIntent.setClass(UserPjActivity.this , PairMainActivity.class);
+//            startActivity(cardIntent);
+//        });
 
 
     }
