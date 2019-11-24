@@ -94,6 +94,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation 'androidx.vectordrawable:vectordrawable-animated'
+    implementation 'androidx.navigation:navigation-runtime:2.1.0'
 }
 allprojects {
     repositories {
