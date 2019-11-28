@@ -7,6 +7,6 @@
 
     <fragment
         android:id="@+id/nav_style"
-        android:name="com.example.myapplication.user.view.UserPjActivity"
+        android:name="com.example.myapplication.user.view.UserPjFragment"
         tools:layout="@layout/activity_main" />
 </navigation>

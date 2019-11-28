@@ -18,9 +18,9 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.SignUpActivity;
-import com.example.myapplication.user.view.UserPjActivity;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -196,7 +196,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
 
         loginBtn.setOnClickListener(v -> {
-            Intent it = new Intent(LoginActivity.this, UserPjActivity.class);
+            Intent it = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(it);
             loadingProgressBar.setVisibility(View.VISIBLE);
             loginViewModel.login(edUserid.getText().toString(),

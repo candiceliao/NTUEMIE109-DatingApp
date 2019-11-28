@@ -15,7 +15,8 @@
         tools:ignore="GoogleAppIndexingWarning">
 <!--        tools:replace="android:appComponentFactory"-->
 
-        <activity android:name=".user.view.UserPjActivity"></activity>
+        <activity android:name=".user.view.UserPjFragment"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".pair.hee.view.HeeActivity"></activity>
         <activity android:name=".ui.login.LoginActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>

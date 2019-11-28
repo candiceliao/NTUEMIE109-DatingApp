@@ -11,4 +11,6 @@
     <color name="colorShadow">#6d6d6d</color>
     <color name="colorFbBtn">#039BE5</color>
     <color name="colorPhoneBtn">#8CC470</color>
+    <color name="selected">#B65F7B</color>
+    <color name="not_selected">#1A1515</color>
 </resources>
