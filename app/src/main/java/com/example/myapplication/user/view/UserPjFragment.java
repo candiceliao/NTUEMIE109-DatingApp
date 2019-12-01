@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -21,8 +19,8 @@ public class UserPjFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        userPjViewModel =
-                ViewModelProviders.of(this).get(UserPjViewModel.class);
+        userPjViewModel = ViewModelProviders.of(this).get(UserPjViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_user_pj, container, false);
 //        final ImageView imageView = root.findViewById(R.id.userImage);
 //        userPjViewModel.getText().observe(this, new Observer<String>() {
