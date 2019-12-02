@@ -101,36 +101,9 @@ public class LoginActivity extends AppCompatActivity {
         loadingProgressBar = findViewById(R.id.loading);
         userId = edUserid.getText().toString();
         userPwd = edPasswd.getText().toString();
+        //String uName = null;
+        //String uPassword = null;
 
-
-        // Validate if username, password is filled
-        if (userId.trim().length() > 0 && userPwd.trim().length() > 0) {
-            //有輸入
-            //String uName = null;
-            //String uPassword = null;
-
-            if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) {
-                //登入成功
-                SharedPreferences setting =
-                        getSharedPreferences("userPjInfo", MODE_PRIVATE);
-                setting.edit()
-                        .putString("PREF_Pj_ID", userId)
-                        .putString("PREF_Pj_Pwd", userPwd)
-                        .apply();
-
-                Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
-            } else {
-                // username / password doesn't match
-                Toast.makeText(this,
-                        "Username/Password is incorrect",
-                        Toast.LENGTH_LONG).show();
-            }
-        } else {
-            // user didn't enter username or password
-            Toast.makeText(this,
-                    "Please enter username and password",
-                    Toast.LENGTH_LONG).show();
-        }
 
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -193,21 +166,42 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         });
 
-        loginBtn = findViewById(R.id.loginBtn);
-
-        loginBtn.setOnClickListener(v -> {
-            Intent it = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(it);
-            loadingProgressBar.setVisibility(View.VISIBLE);
-            loginViewModel.login(edUserid.getText().toString(),
-                    edPasswd.getText().toString());
-        });
-
         SignUpBtn.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(LoginActivity.this, SignUpActivity.class);
             startActivity(intent);
         });
+
+        loginBtn = findViewById(R.id.loginBtn);
+
+        loginBtn.setOnClickListener(v -> {
+            // Validate if username, password is filled
+
+                if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) {
+                //登入成功
+                   SharedPreferences setting =
+                        getSharedPreferences("userPjInfo", MODE_PRIVATE);
+                   setting.edit()
+                        .putString("PREF_Pj_ID", userId)
+                        .putString("PREF_Pj_Pwd", userPwd)
+                        .apply();
+
+                   Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+                   Intent it = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(it);
+                 } else {
+                     // username / password doesn't match
+                        Toast.makeText(this,
+                             "Username/Password is incorrect",
+                              Toast.LENGTH_LONG).show();
+                  }
+
+            loadingProgressBar.setVisibility(View.VISIBLE);
+            loginViewModel.login(edUserid.getText().toString(),
+                    edPasswd.getText().toString());
+        });
+
+
     }
 
 
