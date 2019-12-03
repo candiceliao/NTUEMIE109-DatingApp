@@ -1,8 +1,6 @@
 package com.example.myapplication.pair;
 
-import android.graphics.Point;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,9 +31,8 @@ public class PairMainFragment extends Fragment {
         mSwipeView.getBuilder()
                 .setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor()
-//                        .setPaddingTop(10)
+                        .setPaddingTop(10)
                         .setRelativeScale(0.01f)
-
                         .setSwipeInMsgLayoutId(R.layout.pair_swipe_in_msg_view)
                         .setSwipeOutMsgLayoutId(R.layout.pair_swipe_out_msg_view));
 
