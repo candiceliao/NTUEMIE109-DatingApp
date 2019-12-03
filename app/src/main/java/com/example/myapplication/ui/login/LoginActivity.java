@@ -66,6 +66,20 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Log.d("TAG", "GO");
 
+        //SharedPreferences
+        spref = getPreferences(MODE_PRIVATE);
+        editor = spref.edit();
+        editor.clear();
+        edUserid = findViewById(R.id.username);
+        edPasswd = findViewById(R.id.password);
+        loginBtn = findViewById(R.id.loginBtn);
+        SignUpBtn = findViewById(R.id.signUpTextBtn);
+        loadingProgressBar = findViewById(R.id.loading);
+        userId = edUserid.getText().toString();
+        userPwd = edPasswd.getText().toString();
+        //String uName = null;
+        //String uPassword = null;
+
         //for facebook_login
         callbackManager = CallbackManager.Factory.create();
 
@@ -89,21 +103,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-
-        //SharedPreferences
-        spref = getPreferences(MODE_PRIVATE);
-        editor = spref.edit();
-        editor.clear();
-        edUserid = findViewById(R.id.username);
-        edPasswd = findViewById(R.id.password);
-        loginBtn = findViewById(R.id.loginBtn);
-        SignUpBtn = findViewById(R.id.signUpTextBtn);
-        loadingProgressBar = findViewById(R.id.loading);
-        userId = edUserid.getText().toString();
-        userPwd = edPasswd.getText().toString();
-        //String uName = null;
-        //String uPassword = null;
-
 
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -172,29 +171,30 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        loginBtn = findViewById(R.id.loginBtn);
-
         loginBtn.setOnClickListener(v -> {
             // Validate if username, password is filled
-
-                if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) {
+            userId = edUserid.getText().toString();
+            userPwd = edPasswd.getText().toString();
+            if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) {
                 //登入成功
-                   SharedPreferences setting =
+                SharedPreferences setting =
                         getSharedPreferences("userPjInfo", MODE_PRIVATE);
-                   setting.edit()
+                setting.edit()
                         .putString("PREF_Pj_ID", userId)
                         .putString("PREF_Pj_Pwd", userPwd)
                         .apply();
 
-                   Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
-                   Intent it = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(it);
-                 } else {
-                     // username / password doesn't match
-                        Toast.makeText(this,
-                             "Username/Password is incorrect",
-                              Toast.LENGTH_LONG).show();
-                  }
+                Log.d("TAG", "Username/Password is correct");
+                Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+                Intent it = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(it);
+            } else {
+                // username / password doesn't match
+                Log.d("TAG", "Username/Password is incorrect");
+                Toast.makeText(this,
+                        "Username/Password is incorrect",
+                        Toast.LENGTH_LONG).show();
+            }
 
             loadingProgressBar.setVisibility(View.VISIBLE);
             loginViewModel.login(edUserid.getText().toString(),
