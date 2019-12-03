@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_hee"/>
 
     <fragment
-        android:id="@+id/nav_hsiang"
-        android:name="com.example.myapplication.pair.hsiang.view.HsiangFragment"
-        tools:layout="@layout/fragment_hsiang"/>
+        android:id="@+id/nav_pair"
+        android:name="com.example.myapplication.pair.PairMainFragment"
+        tools:layout="@layout/fragment_pair_main"/>
 </navigation>

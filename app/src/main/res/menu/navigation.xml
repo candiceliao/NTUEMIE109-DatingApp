@@ -11,14 +11,14 @@
         android:icon="@drawable/chat"
         android:title="@string/nav_chat" />
     <item
-        android:id="@+id/nav_hsiang"
+        android:id="@+id/nav_pair"
         android:icon="@drawable/face"
         android:title="@string/nav_style" />
 
-    <item
-        android:id="@+id/nav_video"
-        android:icon="@drawable/camera"
-        android:title="@string/nav_video" />
+<!--    <item-->
+<!--        android:id="@+id/nav_video"-->
+<!--        android:icon="@drawable/camera"-->
+<!--        android:title="@string/nav_video" />-->
 
 <!--    <item-->
 <!--        android:id="@+id/nav_robot"-->

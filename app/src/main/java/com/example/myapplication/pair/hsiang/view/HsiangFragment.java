@@ -1,5 +1,6 @@
 package com.example.myapplication.pair.hsiang.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.pair.hsiang.viewModel.HsiangViewModel;
+import com.example.myapplication.ui.login.LoginActivity;
 
 public class HsiangFragment extends Fragment {
 
@@ -24,7 +27,6 @@ public class HsiangFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_hsiang, container, false);
 
         return root;
-
 
     }
 }
