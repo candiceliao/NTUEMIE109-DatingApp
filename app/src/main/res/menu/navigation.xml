@@ -15,10 +15,10 @@
         android:icon="@drawable/face"
         android:title="@string/nav_style" />
 
-<!--    <item-->
-<!--        android:id="@+id/nav_video"-->
-<!--        android:icon="@drawable/camera"-->
-<!--        android:title="@string/nav_video" />-->
+    <item
+        android:id="@+id/nav_video"
+        android:icon="@drawable/camera"
+        android:title="@string/nav_video" />
 
 <!--    <item-->
 <!--        android:id="@+id/nav_robot"-->

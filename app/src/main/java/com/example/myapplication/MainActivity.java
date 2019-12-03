@@ -17,17 +17,17 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
-//        //bottom nav
-//        BottomNavigationView navView = findViewById(R.id.nav_view);
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_pj, R.id.nav_hee, R.id.nav_hsiang)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_activity);
+
+        //bottom nav
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_pj, R.id.nav_hee, R.id.nav_hsiang)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_fragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(navView, navController);
+        NavigationUI.setupWithNavController(navView, navController);
 
     }
 }
