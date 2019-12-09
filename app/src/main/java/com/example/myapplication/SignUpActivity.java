@@ -52,9 +52,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         interestPageBtn.setOnClickListener(v -> {
-            interestIntent = new Intent();
-            interestIntent.setClass(SignUpActivity.this, InterestActivity.class);
-            startActivity(interestIntent);
 
             editor1 = getSharedPreferences("data", MODE_PRIVATE).edit();
             editor1.putString("name", edUsername.getText().toString());
@@ -63,12 +60,26 @@ public class SignUpActivity extends AppCompatActivity {
             editor1.putString("password", edPasswd.getText().toString());
             editor1.putString("reEnterPwd", reEnterPwd.getText().toString());
 
-            if (edPasswd.equals(reEnterPwd) ) {
-                editor1.commit();
-            } else {
-                // password doesn't match
-                Toast.makeText(getApplicationContext(),
+            if (edUsername.trim().length() > 0 && edUserBirth.trim().length() > 0 &&
+                    edUserid.trim().length() > 0 && edPasswd.trim().length() > 0 &&
+                    reEnterPwd.trim().length() > 0 ) {
+
+                if (edPasswd.equals(reEnterPwd) ) {
+                    editor1.commit();
+                    interestIntent = new Intent();
+                    interestIntent.setClass(SignUpActivity.this, InterestActivity.class);
+                    startActivity(interestIntent);
+
+                } else {
+                    // password doesn't match
+                    Toast.makeText(getApplicationContext(),
                         "Password is incorrect",
+                        Toast.LENGTH_LONG).show();
+                }
+            } else {
+                // user didn't enter username or password
+                Toast.makeText(this,
+                        "Please enter empty fields",
                         Toast.LENGTH_LONG).show();
             }
 
