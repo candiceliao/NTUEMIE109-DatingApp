@@ -22,6 +22,11 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText edUserid;
     private EditText edPasswd;
     private EditText reEnterPwd;
+    private String userName;
+    private String userBirth;
+    private String userId;
+    private String userPwd;
+    private String rePwd;
 
     private SharedPreferences spref;
     private SharedPreferences.Editor editor;
@@ -60,16 +65,20 @@ public class SignUpActivity extends AppCompatActivity {
             editor1.putString("password", edPasswd.getText().toString());
             editor1.putString("reEnterPwd", reEnterPwd.getText().toString());
 
-            if (edUsername.trim().length() > 0 && edUserBirth.trim().length() > 0 &&
-                    edUserid.trim().length() > 0 && edPasswd.trim().length() > 0 &&
-                    reEnterPwd.trim().length() > 0 ) {
+            userName = edUsername.getText().toString();
+            userBirth = edUserBirth.getText().toString();
+            userId = edUserid.getText().toString();
+            userPwd = edPasswd.getText().toString();
+            rePwd = reEnterPwd.getText().toString();
+            if (userName.trim().length() > 0 && userBirth.trim().length() > 0 &&
+                    userId.trim().length() > 0 && userPwd.trim().length() > 0 &&
+                    rePwd.trim().length() > 0 ) {
 
                 if (edPasswd.equals(reEnterPwd) ) {
                     editor1.commit();
                     interestIntent = new Intent();
                     interestIntent.setClass(SignUpActivity.this, InterestActivity.class);
                     startActivity(interestIntent);
-
                 } else {
                     // password doesn't match
                     Toast.makeText(getApplicationContext(),
