@@ -3,26 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_friend"
+        android:id="@+id/nav_pj"
         android:icon="@drawable/friend"
         android:title="@string/nav_friend" />
     <item
-        android:id="@+id/nav_chat"
+        android:id="@+id/nav_hee"
         android:icon="@drawable/chat"
         android:title="@string/nav_chat" />
     <item
-        android:id="@+id/nav_style"
+        android:id="@+id/nav_pair"
         android:icon="@drawable/face"
         android:title="@string/nav_style" />
 
-    <item
-        android:id="@+id/nav_video"
-        android:icon="@drawable/camera"
-        android:title="@string/nav_video" />
+<!--    <item-->
+<!--        android:id="@+id/nav_video"-->
+<!--        android:icon="@drawable/camera"-->
+<!--        android:title="@string/nav_video" />-->
 
-    <item
-        android:id="@+id/nav_robot"
-        android:icon="@drawable/robot"
-        android:title="@string/nav_robot" />
+<!--    <item-->
+<!--        android:id="@+id/nav_robot"-->
+<!--        android:icon="@drawable/robot"-->
+<!--        android:title="@string/nav_robot" />-->
 
 </menu>

@@ -2,7 +2,13 @@ package com.example.myapplication.pair;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.graphics.Point;
+import android.os.Build;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 
 import com.example.myapplication.pair.Profile;
 import com.google.gson.Gson;

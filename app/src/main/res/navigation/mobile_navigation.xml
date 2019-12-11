@@ -3,10 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/nav_style">
+    app:startDestination="@+id/nav_pj">
 
     <fragment
-        android:id="@+id/nav_style"
-        android:name="com.example.myapplication.user.view.UserPjActivity"
-        tools:layout="@layout/activity_main" />
+        android:id="@+id/nav_pj"
+        android:name="com.example.myapplication.user.view.UserPjFragment"
+        tools:layout="@layout/fragment_user_pj" />
+
+    <fragment
+        android:id="@+id/nav_hee"
+        android:name="com.example.myapplication.pair.hee.view.HeeFragment"
+        tools:layout="@layout/fragment_hee"/>
+
+    <fragment
+        android:id="@+id/nav_pair"
+        android:name="com.example.myapplication.pair.PairMainFragment"
+        tools:layout="@layout/fragment_pair_main"/>
 </navigation>
