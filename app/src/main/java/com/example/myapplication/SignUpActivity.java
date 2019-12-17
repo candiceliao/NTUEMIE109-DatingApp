@@ -74,10 +74,12 @@ public class SignUpActivity extends AppCompatActivity {
                     userId.trim().length() > 0 && userPwd.trim().length() > 0 &&
                     rePwd.trim().length() > 0 ) {
 
+                userPwd = edPasswd.getText().toString();
+                rePwd = reEnterPwd.getText().toString();
                 if (edPasswd.equals(reEnterPwd) ) {
                     editor1.commit();
                     interestIntent = new Intent();
-                    interestIntent.setClass(SignUpActivity.this, InterestActivity.class);
+                    interestIntent.setClass(SignUpActivity.this, MainActivity.class);
                     startActivity(interestIntent);
                 } else {
                     // password doesn't match
