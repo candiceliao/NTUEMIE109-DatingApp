@@ -19,4 +19,9 @@
         android:id="@+id/nav_pair"
         android:name="com.example.myapplication.pair.PairMainFragment"
         tools:layout="@layout/fragment_pair_main"/>
+
+    <fragment
+        android:id="@+id/nav_robot"
+        android:name="com.example.myapplication.robot.ChatFragment"
+        tools:layout="@layout/fragment_robot_chat"/>
 </navigation>

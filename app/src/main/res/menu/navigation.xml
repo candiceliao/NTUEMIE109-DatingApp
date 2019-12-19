@@ -20,9 +20,9 @@
 <!--        android:icon="@drawable/camera"-->
 <!--        android:title="@string/nav_video" />-->
 
-<!--    <item-->
-<!--        android:id="@+id/nav_robot"-->
-<!--        android:icon="@drawable/robot"-->
-<!--        android:title="@string/nav_robot" />-->
+    <item
+        android:id="@+id/nav_robot"
+        android:icon="@drawable/robot"
+        android:title="@string/nav_robot" />
 
 </menu>
