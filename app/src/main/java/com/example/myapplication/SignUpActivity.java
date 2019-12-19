@@ -55,7 +55,6 @@ public class SignUpActivity extends AppCompatActivity {
         edUserid.setText(setting.getString("PREF_USERID", ""));
 
 
-
         interestPageBtn.setOnClickListener(v -> {
 
             editor1 = getSharedPreferences("data", MODE_PRIVATE).edit();
@@ -72,11 +71,11 @@ public class SignUpActivity extends AppCompatActivity {
             rePwd = reEnterPwd.getText().toString();
             if (userName.trim().length() > 0 && userBirth.trim().length() > 0 &&
                     userId.trim().length() > 0 && userPwd.trim().length() > 0 &&
-                    rePwd.trim().length() > 0 ) {
+                    rePwd.trim().length() > 0) {
 
                 userPwd = edPasswd.getText().toString();
                 rePwd = reEnterPwd.getText().toString();
-                if (edPasswd.equals(reEnterPwd) ) {
+                if (edPasswd.equals(reEnterPwd)) {
                     editor1.commit();
                     interestIntent = new Intent();
                     interestIntent.setClass(SignUpActivity.this, MainActivity.class);
@@ -84,8 +83,8 @@ public class SignUpActivity extends AppCompatActivity {
                 } else {
                     // password doesn't match
                     Toast.makeText(getApplicationContext(),
-                        "Password is incorrect",
-                        Toast.LENGTH_LONG).show();
+                            "Password is incorrect",
+                            Toast.LENGTH_LONG).show();
                 }
             } else {
                 // user didn't enter username or password
@@ -94,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
 
-        finish();
+            finish();
 
         });
     }
