@@ -44,7 +44,7 @@ public class ChatFragment extends Fragment {
 
         // 3.初始化資料
         list = new ArrayList<ChatMessage>();
-        list.add(new ChatMessage("您好,小乖為您服務!", ChatMessage.Type.INCOUNT, new Date()));
+        list.add(new ChatMessage("嗨~怎麼了嗎:)儒儒愛你喔<3", ChatMessage.Type.INCOUNT, new Date()));
         chatAdapter = new ChatMessageAdapter(list);
         chat_listview.setAdapter(chatAdapter);
         chatAdapter.notifyDataSetChanged();

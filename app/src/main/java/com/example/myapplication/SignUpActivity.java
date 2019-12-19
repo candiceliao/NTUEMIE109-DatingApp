@@ -5,8 +5,6 @@ import android.os.Bundle;
 //import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
-import com.example.myapplication.interest.InterestActivity;
-
 import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Toast;

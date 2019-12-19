@@ -62,17 +62,17 @@ public class ChatMessageAdapter extends BaseAdapter {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(
                         R.layout.robot_chat_left, null);
                 viewHolder = new ViewHolder();
-                viewHolder.chat_time = (TextView) convertView
+                viewHolder.chat_time = convertView
                         .findViewById(R.id.chat_left_time);
-                viewHolder.chat_message = (TextView) convertView
+                viewHolder.chat_message = convertView
                         .findViewById(R.id.chat_left_message);
             } else {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(
                         R.layout.robot_chat_right, null);
                 viewHolder = new ViewHolder();
-                viewHolder.chat_time = (TextView) convertView
+                viewHolder.chat_time = convertView
                         .findViewById(R.id.chat_right_time);
-                viewHolder.chat_message = (TextView) convertView
+                viewHolder.chat_message = convertView
                         .findViewById(R.id.chat_right_message);
             }
             convertView.setTag(viewHolder);

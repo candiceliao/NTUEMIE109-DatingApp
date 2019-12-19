@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginBottom="42dp">
 
     <!-- 頭部 -->
 
@@ -17,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="小蜜"
+            android:text="儒儒"
             android:textColor="#ffffff"
             android:textSize="18sp" />
     </RelativeLayout>
@@ -41,15 +42,15 @@
             android:gravity="center" />
 
         <Button
-            android:background="@drawable/button_white_corner"
+            android:background="@drawable/button_pink_corner"
             android:id="@+id/chat_send"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="27dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/chat_input_message"
             android:text="傳送"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:textSize="18sp" />
     </RelativeLayout>
 
