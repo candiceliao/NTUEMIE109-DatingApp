@@ -22,12 +22,12 @@ public class PairCard {
 
     @View(R.id.profileImageView)
     private ImageView profileImageView;
-
-    @View(R.id.nameAgeTxt)
-    private TextView nameAgeTxt;
-
-    @View(R.id.locationNameTxt)
-    private TextView locationNameTxt;
+//
+//    @View(R.id.nameAgeTxt)
+//    private TextView nameAgeTxt;
+//
+//    @View(R.id.locationNameTxt)
+//    private TextView locationNameTxt;
 
     private Profile mProfile;
     private Context mContext;
@@ -42,8 +42,8 @@ public class PairCard {
     @Resolve
     private void onResolved(){
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
-        nameAgeTxt.setText(mProfile.getName() + ", " + mProfile.getAge());
-        locationNameTxt.setText(mProfile.getLocation());
+//        nameAgeTxt.setText(mProfile.getName() + ", " + mProfile.getAge());
+//        locationNameTxt.setText(mProfile.getLocation());
     }
 
     @SwipeOut
