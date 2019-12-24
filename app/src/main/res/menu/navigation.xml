@@ -7,7 +7,7 @@
         android:icon="@drawable/friend"
         android:title="@string/nav_friend" />
     <item
-        android:id="@+id/nav_hee"
+        android:id="@+id/nav_chat_page"
         android:icon="@drawable/chat"
         android:title="@string/nav_chat" />
     <item
