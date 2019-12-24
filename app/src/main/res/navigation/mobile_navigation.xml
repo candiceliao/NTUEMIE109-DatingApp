@@ -24,4 +24,9 @@
         android:id="@+id/nav_robot"
         android:name="com.example.myapplication.robot.ChatFragment"
         tools:layout="@layout/fragment_robot_chat"/>
+
+    <fragment
+        android:id="@+id/nav_friends"
+        android:name="com.example.myapplication.friend.FriendFragment"
+        tools:layout="@layout/fragment_friend_page"/>
 </navigation>
