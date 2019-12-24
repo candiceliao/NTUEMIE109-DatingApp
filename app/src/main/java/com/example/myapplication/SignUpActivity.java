@@ -65,14 +65,16 @@ public class SignUpActivity extends AppCompatActivity {
             userName = edUsername.getText().toString();
             userBirth = edUserBirth.getText().toString();
             userId = edUserid.getText().toString();
-            userPwd = edPasswd.getText().toString();
-            rePwd = reEnterPwd.getText().toString();
+//            userPwd = edPasswd.getText().toString();
+//            rePwd = reEnterPwd.getText().toString();
+
             if (userName.trim().length() > 0 && userBirth.trim().length() > 0 &&
                     userId.trim().length() > 0 && userPwd.trim().length() > 0 &&
                     rePwd.trim().length() > 0) {
 
                 userPwd = edPasswd.getText().toString();
                 rePwd = reEnterPwd.getText().toString();
+
                 if (edPasswd.equals(reEnterPwd)) {
                     editor1.commit();
                     interestIntent = new Intent();
