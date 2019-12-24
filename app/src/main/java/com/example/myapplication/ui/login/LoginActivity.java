@@ -175,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
             // Validate if username, password is filled
             userId = edUserid.getText().toString();
             userPwd = edPasswd.getText().toString();
-            if (userId.equals("pjchennn@gmail.com") && userPwd.equals("12345678")) {
+            if (userId.equals("sarah@gmail.com") && userPwd.equals("12345678")) {
                 //登入成功
                 SharedPreferences setting =
                         getSharedPreferences("userPjInfo", MODE_PRIVATE);
