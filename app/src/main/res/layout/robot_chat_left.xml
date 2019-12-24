@@ -27,12 +27,12 @@
                 android:id="@+id/chat_left_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/pj_face" />
+                android:src="@drawable/robot_chat" />
         </LinearLayout>
 
         <TextView
             android:layout_marginLeft="10dp"
-            android:background="@drawable/button_pink_corner"
+            android:background="@drawable/robot_messenge"
             android:gravity="center"
             android:textSize="16sp"
             android:layout_gravity="center_vertical"
