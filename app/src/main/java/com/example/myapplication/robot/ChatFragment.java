@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -26,7 +25,7 @@ public class ChatFragment extends Fragment {
     private List<ChatMessage> list;
     private ListView chat_listview;
     private EditText chat_input;
-    private Button chat_send;
+    private ImageButton chat_send;
     private ChatMessageAdapter chatAdapter;
     private ChatMessage chatMessage = null;
 
@@ -80,7 +79,6 @@ public class ChatFragment extends Fragment {
                 handler.sendMessage(message);
             }
 
-            ;
         }.start();
     }
 
@@ -102,15 +100,11 @@ public class ChatFragment extends Fragment {
     };
 
     // 點選事件監聽
-    OnClickListener onClickListener = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.chat_send:
-                    chat();
-                    break;
-            }
+    OnClickListener onClickListener = v -> {
+        switch (v.getId()) {
+            case R.id.chat_send:
+                chat();
+                break;
         }
     };
 

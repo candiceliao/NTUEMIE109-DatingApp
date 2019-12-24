@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_pj"
+        android:id="@+id/nav_friends"
         android:icon="@drawable/friend"
         android:title="@string/nav_friend" />
     <item
@@ -11,14 +11,14 @@
         android:icon="@drawable/chat"
         android:title="@string/nav_chat" />
     <item
-        android:id="@+id/nav_pair"
-        android:icon="@drawable/face"
-        android:title="@string/nav_style" />
+        android:id="@+id/nav_pj"
+        android:icon="@drawable/home"
+        android:title="@string/nav_home" />
 
-<!--    <item-->
-<!--        android:id="@+id/nav_video"-->
-<!--        android:icon="@drawable/camera"-->
-<!--        android:title="@string/nav_video" />-->
+    <item
+        android:id="@+id/nav_pair"
+        android:icon="@drawable/match"
+        android:title="@string/nav_date" />
 
     <item
         android:id="@+id/nav_robot"
